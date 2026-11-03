@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(echo \"exit: $?  \\(nonzero = nothing found = good\\)\")",
+      "mcp__claude-in-chrome__tabs_context_mcp",
+      "ClaudeInChromeDomain(localhost:5174)",
+      "mcp__claude-in-chrome__browser_batch"
+    ]
+  }
+}

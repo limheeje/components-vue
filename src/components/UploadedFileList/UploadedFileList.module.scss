@@ -1,0 +1,99 @@
+@use '~/assets/styles/theme' as *;
+
+// ── modifier / state 클래스명 (단일 소스) ──────────────────────────
+$IS_ERROR: 'is-error';
+$IS_PREVIEWABLE: 'is-previewable';
+
+.bsUploadedFileList {
+  display: flex;
+  flex-direction: column;
+  gap: rem(6px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bsUploadedFileItem {
+  display: flex;
+  align-items: center;
+  gap: rem(10px);
+  padding: rem(8px) rem(12px);
+  border: rem(1px) solid var(--m2m-pg-comp-border);
+  border-radius: rem(8px);
+  background-color: var(--m2m-pg-comp-bg-subtle);
+
+  &.#{$IS_ERROR} {
+    border-color: var(--m2m-pg-error);
+    background-color: var(--m2m-pg-error-bg);
+  }
+}
+
+.bsUploadedFileThumb {
+  width: rem(36px);
+  height: rem(36px);
+  object-fit: cover;
+  border-radius: rem(4px);
+  flex-shrink: 0;
+  background-color: var(--m2m-pg-comp-bg);
+
+  &.#{$IS_PREVIEWABLE} {
+    cursor: zoom-in;
+  }
+}
+
+.bsUploadedFileIcon {
+  flex-shrink: 0;
+  color: var(--m2m-pg-comp-text-muted);
+}
+.bsUploadedFileItem.#{$IS_ERROR} .bsUploadedFileIcon {
+  color: var(--m2m-pg-error);
+}
+
+.bsUploadedFileInfo {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: rem(2px);
+}
+
+.bsUploadedFileName {
+  @include text-ellipsis(1);
+  color: var(--m2m-pg-comp-text);
+  @include typo('Body/Regular');
+}
+
+.bsUploadedFileMeta {
+  color: var(--m2m-pg-comp-text-muted);
+  @include typo('Caption/Regular');
+}
+.bsUploadedFileItem.#{$IS_ERROR} .bsUploadedFileMeta {
+  color: var(--m2m-pg-error);
+}
+
+.bsUploadedFileStatusDone {
+  flex-shrink: 0;
+  color: var(--m2m-pg-success);
+}
+.bsUploadedFileStatusUploading {
+  flex-shrink: 0;
+  color: var(--m2m-pg-brand);
+}
+.bsUploadedFileStatusError {
+  flex-shrink: 0;
+  color: var(--m2m-pg-error);
+}
+
+.bsUploadedFileRemove {
+  display: inline-flex;
+  flex-shrink: 0;
+  padding: rem(2px);
+  border: none;
+  background: none;
+  color: var(--m2m-pg-comp-text-muted);
+  cursor: pointer;
+
+  &:hover {
+    color: var(--m2m-pg-comp-text);
+  }
+}

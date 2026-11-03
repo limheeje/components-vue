@@ -1,0 +1,40 @@
+@use '~/assets/styles/theme' as *;
+
+.bsChart {
+  width: 100%;
+
+  // unovis 축/텍스트도 토큰 색으로
+  :global(.vis-axis .tick text),
+  :global(.vis-axis-label) {
+    fill: var(--m2m-pg-comp-text-muted);
+    font-size: rem(11px);
+  }
+  :global(.vis-axis .domain),
+  :global(.vis-axis .tick line) {
+    stroke: var(--m2m-pg-comp-border);
+  }
+  :global(.vis-crosshair-line) {
+    stroke: var(--m2m-pg-comp-border);
+  }
+}
+
+.bsChartRadar {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+.bsChartLegend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: rem(4px) rem(16px);
+  margin-top: rem(8px);
+  font-size: rem(12px);
+
+  :global(.vis-bullet-legend-label) {
+    color: var(--m2m-pg-comp-text-sub);
+  }
+}
